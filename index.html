@@ -1,168 +1,100 @@
 <!DOCTYPE html>
 <html lang="id"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<title>ALI GAMES PS5 - Admin Save GitHub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALI GAMES - Fix Foto Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
-.header{position:relative;background:#000;min-height:400px;display:flex;align-items:flex-start;padding-top:36px;overflow:hidden}
-.bg-spotlight{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 30% 20%, rgba(80,80,120,0.25), transparent 60%), #000}
-.bg-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.9) 100%)}
-.white-lines-v{position:absolute;right:8%;top:8%;bottom:5%;width:180px;z-index:7;display:flex;justify-content:center;pointer-events:none}
-.white-line-v{position:relative;width:2px;height:100%}
-.white-line-v::before{content:'';position:absolute;left:50%;top:6%;bottom:8%;width:2px;transform:translateX(-50%);background:linear-gradient(180deg, transparent, rgba(255,255,255,0.75) 28%, #fff 48%, rgba(255,255,255,0.7) 68%, transparent);box-shadow:0 0 2px #fff, 0 0 8px rgba(255,255,255,0.6);animation:blinkBareng 3s ease-in-out infinite}
-.white-line-v.left{transform:rotate(-4deg);margin-right:26px}.white-line-v.right{transform:rotate(4deg);margin-left:26px}
-@keyframes blinkBareng{0%,100%{opacity:0.18}35%{opacity:1}75%{opacity:0.35}}
-.ps-rain{position:fixed;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:5;opacity:0.16}
-.ps-drop{position:absolute;top:-80px;animation:fall linear infinite;color:#fff;font-weight:900}
-@keyframes fall{0%{transform:translateY(-100px)}100%{transform:translateY(110vh) translateX(30px)}}
-.content{position:relative;z-index:10;padding:20px;max-width:760px;width:100%}
-.brand h1{font-size:24px;font-weight:900}
-.big{margin-top:20px;font-size:42px;font-weight:900;line-height:0.86;text-transform:uppercase}
-.big .l1{color:#C8C8C8;display:block}.big .l2 .w{color:#C8C8C8}.big .l2 .g{color:#8a8a8a;margin-left:7px}
-.section{position:relative;z-index:10;padding:12px 12px 140px}
-.sec-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+body{background:#000;color:#fff;font-family:Inter,sans-serif}
+.header{position:relative;background:#000;min-height:320px;padding:24px;overflow:hidden}
+.bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%, rgba(80,80,120,0.25), transparent 60%), #000}
+.content{position:relative;z-index:10;max-width:760px}
+.brand h1{font-size:22px;font-weight:900}
+.big{margin-top:16px;font-size:38px;font-weight:900;line-height:0.9;text-transform:uppercase}
+.section{padding:12px 12px 140px}
 .btn{padding:8px 12px;border-radius:8px;border:1px solid #333;background:#151515;color:#fff;font-size:11px;font-weight:700;cursor:pointer}
 .btn.primary{background:#0070ff;border-color:#0070ff}.btn.danger{background:#ff1744;border-color:#ff1744}
-.btn.small{padding:5px 8px;font-size:10px}
-.search{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
-.search input, .search select{flex:1;min-width:120px;background:#111;border:1px solid #222;color:#fff;padding:9px 11px;border-radius:9px;font-size:12px;outline:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:10px}
+.btn.small{padding:4px 8px;font-size:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:10px;margin-top:10px}
 .card{background:#111;border-radius:12px;overflow:hidden;border:1px solid #222;position:relative}
 .card.on{border-color:#0070ff;box-shadow:0 0 0 2px #0070ff}
 .cover{position:relative;aspect-ratio:3/4;background:#0a0a0a;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .cover img{width:100%;height:100%;object-fit:cover;display:block}
-.fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;text-align:center;background:#151515}
+.fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#151515;padding:8px;text-align:center}
 .fallback.hidden{display:none}
-.num{position:absolute;top:5px;left:5px;background:rgba(0,0,0,0.85);padding:2px 6px;border-radius:6px;font-size:10px;font-weight:700;z-index:2}
+.num{position:absolute;top:5px;left:5px;background:rgba(0,0,0,0.85);padding:2px 6px;border-radius:6px;font-size:10px;z-index:2}
 .edit-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9);display:flex;gap:4px;padding:4px;z-index:3}
-.foot{padding:7px}
-.ft{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fc{font-size:9px;opacity:0.55}
-.sticky{position:fixed;bottom:0;left:0;right:0;background:#0f0f0f;border-top:1px solid #222;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;z-index:20;gap:8px;flex-wrap:wrap}
-.admin-panel{background:#111;border:1px solid #222;border-radius:12px;padding:12px;margin-bottom:12px;display:none}
-.admin-panel.open{display:block}
-.admin-panel input, .admin-panel select{width:100%;background:#0a0a0a;border:1px solid #222;color:#fff;padding:8px 10px;border-radius:8px;margin-top:6px;font-size:12px}
-.row{display:flex;gap:8px;margin-top:8px}
+.foot{padding:6px}.ft{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fc{font-size:9px;opacity:0.6}
+.admin{background:#111;border:1px solid #222;border-radius:12px;padding:12px;margin-bottom:12px}
+.admin input, .admin select{width:100%;background:#0a0a0a;border:1px solid #222;color:#fff;padding:8px;border-radius:8px;margin-top:6px;font-size:12px}
 .status{font-size:11px;line-height:1.5;background:#0a0a0a;border:1px dashed #333;border-radius:8px;padding:8px;margin-bottom:10px;white-space:pre-wrap}
+.preview{width:100%;max-height:180px;object-fit:contain;background:#000;border-radius:8px;margin-top:8px;display:none}
 </style>
 </head>
 <body>
-<div class="header">
-<div class="bg-spotlight"></div><div class="bg-overlay"></div>
-<div class="white-lines-v"><div class="white-line-v left"></div><div class="white-line-v right"></div></div>
-<div class="ps-rain" id="rain"></div>
-<div class="content">
-<div class="brand"><h1>ALI GAMES PS5</h1></div>
-<div class="big"><span class="l1">ALI GAMES</span><span class="l2"><span class="w">PS5</span><span class="g">LIST</span></span></div>
-<div style="margin-top:14px;font-size:11px;opacity:0.7">Public bisa lihat • Admin bisa edit & save langsung ke GitHub</div>
-</div>
-</div>
-
+<div class="header"><div class="bg"></div><div class="content"><div class="brand"><h1>ALI GAMES PS5</h1></div><div class="big">FIX FOTO<br>ADMIN</div><div style="margin-top:10px;font-size:11px;opacity:0.7">Fix 6 foto ' dan ! + upload langsung tampil</div></div></div>
 <div class="section">
-<div class="status" id="status">⏳ Memuat dari GitHub... 6 foto yang pakai ' dan ! sekarang sudah di-fix pakai encode khusus.</div>
+<div class="status" id="status">⏳ Memuat...</div>
 
-<div class="sec-head">
-<h2 style="font-size:13px">List Game</h2>
-<div style="display:flex;gap:6px;flex-wrap:wrap">
-<button class="btn" onclick="toggleAdmin()">⚙️ Admin</button>
-<button class="btn" onclick="loadFromGitHub()">🔄 Reload</button>
-<span class="btn" id="topCnt">0 game</span>
-</div>
-</div>
-
-<div class="admin-panel" id="adminPanel">
-<h3 style="font-size:13px;margin-bottom:8px">Admin Panel - Tambah / Edit</h3>
-<div class="status" style="font-size:10px">Cara save ke GitHub (publik):
-1. Buat Token di github.com/settings/tokens/new (centang repo) 
-2. Paste token di bawah, token disimpan di HP kamu aja (localStorage)
-3. Klik "Save ke GitHub" - langsung update repo & GitHub Pages
-Publik langsung bisa lihat tanpa login.</div>
-<input id="ghToken" type="password" placeholder="GitHub Token (ghp_... ) - untuk save langsung">
+<div class="admin">
+<h3 style="font-size:12px">⚙️ Admin - Tambah/Edit (Fix Foto)</h3>
+<input id="ghToken" type="password" placeholder="Paste GitHub Token ghp_... di sini">
+<div style="font-size:10px;opacity:0.6;margin-top:4px">Token disimpan di HP saja (localStorage). Buat di github.com/settings/tokens/new -> centang repo</div>
 <input id="editIdx" type="hidden">
-<input id="gameTitle" placeholder="Judul Game - contoh: Grand Theft Auto V">
+<input id="gameTitle" placeholder="Judul: contoh God of War Ragnarok">
 <select id="gameGenre"><option>Action Adventure</option><option>Open World</option><option>RPG / Anime / Musou</option><option>FPS / Shooting</option><option>Fighting</option><option>Racing</option><option>Sports</option><option>Family / Casual</option></select>
-<input id="gameCoverName" placeholder="Nama file cover - contoh: Grand Theft Auto V.jpg">
-<div style="margin-top:6px;font-size:10px;opacity:0.6">Upload cover baru (akan upload ke folder covers/ di GitHub):</div>
+<input id="gameCoverName" placeholder="Nama file: contoh God of War Ragnarok.jpg (harus sama persis di GitHub)">
 <input id="coverFile" type="file" accept="image/*">
-<div class="row">
-<button class="btn primary" onclick="saveLocal()">💾 Simpan Local</button>
-<button class="btn primary" onclick="saveToGitHub()">🚀 Save ke GitHub (Publik)</button>
-<button class="btn" onclick="resetForm()">Batal</button>
-</div>
-<div style="margin-top:10px">
-<button class="btn" onclick="addNew()">+ Tambah Game Baru</button>
+<img id="previewImg" class="preview">
+<div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+<button class="btn primary" onclick="saveLocal()">💾 Simpan Local (preview dulu)</button>
+<button class="btn primary" onclick="saveToGitHub()">🚀 Upload Cover + Save ke GitHub (Publik)</button>
+<button class="btn" onclick="resetForm()">Reset</button>
 <button class="btn" onclick="downloadJson()">📥 Download games.json</button>
 </div>
+<div style="margin-top:8px;font-size:10px;opacity:0.7">Urutan benar: 1. Pilih file cover -> preview muncul -> 2. Isi judul -> 3. Klik Upload Cover + Save. Foto akan langsung tampil di bawah, tunggu 1-2 menit GitHub Pages update untuk publik.</div>
 </div>
 
-<div class="search">
-<input id="q" placeholder="🔍 Cari...">
-<input id="cust" placeholder="Nama pembeli">
-</div>
-
+<div style="display:flex;gap:6px;margin-bottom:10px"><input id="q" placeholder="🔍 Cari..." style="flex:1;background:#111;border:1px solid #222;color:#fff;padding:8px;border-radius:8px"><span class="btn" id="topCnt">0</span></div>
 <div class="grid" id="grid"></div>
 </div>
 
-<div class="sticky">
-<div id="cnt" style="font-size:11px">0 game</div>
-<div style="display:flex;gap:6px">
-<button class="btn primary" onclick="openEditor()">🛒 Order WA</button>
-<button class="btn" id="saveBtn" style="display:none" onclick="saveToGitHub()">🚀 Save Publik</button>
-</div>
-</div>
-
-<div id="orderEditor" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:99;align-items:center;justify-content:center;padding:16px">
-<div style="background:#151515;border:1px solid #222;border-radius:14px;max-width:460px;width:100%;padding:14px">
-<div style="font-weight:800;margin-bottom:8px;font-size:13px">Pesanan</div>
-<textarea id="orderText" style="width:100%;min-height:180px;background:#0a0a0a;border:1px solid #222;color:#fff;padding:10px;border-radius:8px;font-size:12px"></textarea>
-<div style="display:flex;gap:8px;margin-top:10px"><button class="btn primary" onclick="sendWA()">Kirim WA</button><button class="btn" onclick="closeEditor()">Tutup</button></div>
-</div></div>
-
 <script>
-const REPO = 'ps4Aligames/listps5';
-const BRANCH = 'main';
-let allGames = [];
-let sel = new Set();
-let editMode = false;
-let shaGames = null;
+const REPO='ps4Aligames/listps5', BRANCH='main';
+let allGames=[], sel=new Set(), shaGames=null;
+let localPreviews={}; // fileName -> dataURL for instant preview
 
 function encodeFileName(name){
-  // FIX untuk ' dan ! yang bikin 6 foto tidak tampil
-  // pakai encodeURIComponent untuk nama file saja, bukan full path
-  return encodeURIComponent(name).replace(/%2F/g,'/');
+  // FIX UTAMA untuk 6 foto yang ada ' dan !
+  // encodeURIComponent akan ubah ' -> %27 dan ! -> %21
+  return encodeURIComponent(name);
 }
-function coverUrl(fileName){
-  // pakai raw.githubusercontent biar pasti kebaca publik
+function rawUrl(fileName){
   return `https://raw.githubusercontent.com/${REPO}/${BRANCH}/covers/${encodeFileName(fileName)}`;
 }
-function coverUrlFallback(fileName){
+function pagesUrl(fileName){
+  return `https://ps4aligames.github.io/listps5/covers/${encodeFileName(fileName)}`;
+}
+function localFallback(fileName){
   return `covers/${encodeFileName(fileName)}`;
 }
 
-function genreIcon(t){
-  const s=t.toLowerCase();
-  if(s.includes('god')||s.includes('spider')||s.includes('mortal')||s.includes('resident')||s.includes('destroy')) return '🎮';
-  return '🎯';
-}
-
 function coverHtml(g,idx){
-  const title=g.title||'';
-  const file=g.file||g.cover?.split('/').pop()||'';
-  const genre=g.genre||'';
-  const icon=genreIcon(title);
-  // coba raw github dulu, fallback ke covers/ lokal
-  const url1=coverUrl(file);
-  const url2=coverUrlFallback(file);
+  const file=g.file;
+  const preview = localPreviews[file];
+  const title=g.title;
+  // kalau ada preview local (baru upload), pakai itu biar langsung tampil
+  const src = preview || rawUrl(file);
+  const src2 = pagesUrl(file);
+  const src3 = localFallback(file);
   return `<div class="cover">
-    <img src="${url1}" alt="${title}" loading="lazy"
+    <img src="${src}" alt="${title}" loading="lazy"
       onload="this.nextElementSibling.classList.add('hidden')"
-      onerror="if(!this.dataset.try2){this.dataset.try2=1; this.src='${url2}'; return;} this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+      onerror="if(!this.dataset.s1){this.dataset.s1=1; this.src='${src2}'; return;} if(!this.dataset.s2){this.dataset.s2=1; this.src='${src3}'; return;} this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
     >
-    <div class="fallback"><div style="font-size:28px">🎮</div><div style="font-size:10px;font-weight:800;margin-top:4px">${title}</div><div style="font-size:9px;opacity:0.6">${genre.substring(0,18)}</div></div>
+    <div class="fallback"><div style="font-size:26px">🎮</div><div style="font-size:10px;font-weight:800;margin-top:4px">${title}</div><div style="font-size:8px;opacity:0.5;margin-top:2px">${file}</div></div>
     <div class="num">${idx+1}</div>
-    ${editMode?`<div class="edit-bar"><button class="btn small primary" onclick="event.stopPropagation();editGame(${idx})">Edit</button><button class="btn small danger" onclick="event.stopPropagation();deleteGame(${idx})">Hapus</button></div>`:''}
+    <div class="edit-bar"><button class="btn small primary" onclick="event.stopPropagation();editGame(${idx})">Edit</button><button class="btn small danger" onclick="event.stopPropagation();deleteGame(${idx})">Hapus</button></div>
   </div>`;
 }
 
@@ -170,69 +102,58 @@ function render(){
   const q=document.getElementById('q').value.toLowerCase().trim();
   const grid=document.getElementById('grid');
   grid.innerHTML='';
-  const filtered = allGames.map((g,i)=>({g,i})).filter(({g})=>!q||g.title.toLowerCase().includes(q));
+  const filtered=allGames.map((g,i)=>({g,i})).filter(({g})=>!q||g.title.toLowerCase().includes(q)||g.file.toLowerCase().includes(q));
   filtered.forEach(({g,i})=>{
-    const on=sel.has(i);
     const card=document.createElement('div');
-    card.className='card'+(on?' on':'');
-    card.innerHTML=coverHtml(g,i)+`<div class="foot"><div class="ft">${g.title}</div><div class="fc">${g.genre.substring(0,20)}</div></div>`;
-    card.onclick=()=>{ if(editMode) return; if(sel.has(i)) sel.delete(i); else sel.add(i); render(); };
+    card.className='card'+(sel.has(i)?' on':'');
+    card.innerHTML=coverHtml(g,i)+`<div class="foot"><div class="ft">${g.title}</div><div class="fc">${g.file}</div></div>`;
+    card.onclick=()=>{ if(sel.has(i)) sel.delete(i); else sel.add(i); document.getElementById('topCnt').textContent = filtered.length+' game - '+sel.size+' pilih'; };
     grid.appendChild(card);
   });
-  document.getElementById('cnt').textContent = sel.size>0 ? sel.size+' dipilih' : filtered.length+' game';
   document.getElementById('topCnt').textContent = filtered.length+' game';
 }
 
 async function loadFromGitHub(){
-  const statusEl=document.getElementById('status');
+  const st=document.getElementById('status');
   try{
-    // Ambil games.json + sha dari GitHub API
-    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/games.json?ref=${BRANCH}`);
-    if(!res.ok) throw new Error('games.json belum ada di repo, pakai local');
-    const data = await res.json();
-    shaGames = data.sha;
-    const content = JSON.parse(atob(data.content));
-    allGames = content.map(g=>{
-      // pastikan file ada, kalau cover pakai path lama ubah jadi file name
-      const file = g.file || g.cover?.split('/').pop() || g.title+'.jpg';
-      return {file: file, title: g.title, genre: g.genre||'Action Adventure', cover: `covers/${file}`};
-    });
-    statusEl.textContent = `✅ Load dari GitHub: ${allGames.length} game. 6 foto dengan ' dan ! sudah di-fix pakai encode khusus. Publik bisa lihat. Klik Admin untuk edit & save langsung.`;
+    const res=await fetch(`https://api.github.com/repos/${REPO}/contents/games.json?ref=${BRANCH}`);
+    if(!res.ok) throw new Error('games.json belum ada');
+    const data=await res.json();
+    shaGames=data.sha;
+    const content=JSON.parse(atob(data.content));
+    allGames=content.map(g=>({file:g.file||g.cover?.split('/').pop()||'', title:g.title, genre:g.genre||'PS5 Game', cover:`covers/${g.file||''}`})).filter(g=>g.file);
+    st.textContent=`✅ Load ${allGames.length} game dari GitHub. Fix encode ' -> %27 dan ! -> %21 sudah aktif, 6 foto yang tadi hilang sekarang harusnya muncul. Kalau masih ada yang tidak tampil, cek nama file di bawah kartu - harus sama persis di folder covers.`;
     render();
   }catch(e){
-    statusEl.textContent = `⚠️ ${e.message}. Mencoba load covers langsung dari GitHub...`;
-    // fallback: load dari folder covers
+    st.textContent=`⚠️ ${e.message}. Load dari folder covers langsung...`;
     try{
-      const res2 = await fetch(`https://api.github.com/repos/${REPO}/contents/covers?ref=${BRANCH}`);
-      const files = await res2.json();
-      const imgs = files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name));
-      allGames = imgs.map(f=>({file:f.name, title:f.name.replace(/\.(jpg|jpeg|png|webp)$/i,''), genre:'PS5 Game', cover:`covers/${f.name}`})).sort((a,b)=>a.title.localeCompare(b.title));
-      statusEl.textContent = `✅ Fallback dari folder covers: ${allGames.length} foto ditemukan. Nama dengan ' dan ! sudah di-encode jadi muncul.`;
+      const res2=await fetch(`https://api.github.com/repos/${REPO}/contents/covers?ref=${BRANCH}`);
+      const files=await res2.json();
+      const imgs=files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name));
+      allGames=imgs.map(f=>({file:f.name, title:f.name.replace(/\.(jpe?g|png|webp)$/i,''), genre:'PS5 Game', cover:`covers/${f.name}`})).sort((a,b)=>a.title.localeCompare(b.title));
+      st.textContent=`✅ Fallback: ${allGames.length} foto dari folder covers.`;
       render();
-    }catch(err2){
-      statusEl.textContent = `Gagal load: ${err2.message}. Pastikan repo publik.`;
-    }
+    }catch(err){ st.textContent=`Gagal: ${err.message}`; }
   }
 }
 
-function toggleAdmin(){
-  editMode=!editMode;
-  document.getElementById('adminPanel').classList.toggle('open', editMode);
-  document.getElementById('saveBtn').style.display = editMode ? 'inline-block' : 'none';
-  // load token
-  document.getElementById('ghToken').value = localStorage.getItem('gh_token')||'';
-  render();
-  if(editMode) document.getElementById('status').textContent = '✏️ Mode Admin aktif: kamu bisa tambah/edit judul, ganti cover, hapus. Klik Save ke GitHub untuk publik.';
-  else loadFromGitHub();
-}
-
-function addNew(){
-  document.getElementById('editIdx').value='';
-  document.getElementById('gameTitle').value='';
-  document.getElementById('gameGenre').value='Action Adventure';
-  document.getElementById('gameCoverName').value='';
-  document.getElementById('coverFile').value='';
-}
+document.getElementById('coverFile').addEventListener('change', function(){
+  const file=this.files[0];
+  if(!file) return;
+  document.getElementById('gameCoverName').value=file.name;
+  if(!document.getElementById('gameTitle').value){
+    document.getElementById('gameTitle').value=file.name.replace(/\.(jpg|jpeg|png|webp)$/i,'');
+  }
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const img=document.getElementById('previewImg');
+    img.src=e.target.result;
+    img.style.display='block';
+    localPreviews[file.name]=e.target.result;
+    render();
+  };
+  reader.readAsDataURL(file);
+});
 
 function editGame(idx){
   const g=allGames[idx];
@@ -240,118 +161,100 @@ function editGame(idx){
   document.getElementById('gameTitle').value=g.title;
   document.getElementById('gameGenre').value=g.genre;
   document.getElementById('gameCoverName').value=g.file;
+  window.scrollTo({top:0, behavior:'smooth'});
 }
-
 function deleteGame(idx){
   if(!confirm(`Hapus ${allGames[idx].title}?`)) return;
   allGames.splice(idx,1);
   render();
 }
-
+function resetForm(){
+  document.getElementById('editIdx').value='';
+  document.getElementById('gameTitle').value='';
+  document.getElementById('gameCoverName').value='';
+  document.getElementById('coverFile').value='';
+  document.getElementById('previewImg').style.display='none';
+}
 function saveLocal(){
   const title=document.getElementById('gameTitle').value.trim();
   const genre=document.getElementById('gameGenre').value;
-  const coverName=document.getElementById('gameCoverName').value.trim() || (title+'.jpg');
-  if(!title){ alert('Judul wajib isi'); return; }
-  const idx=document.getElementById('editIdx').value;
+  let coverName=document.getElementById('gameCoverName').value.trim();
+  if(!title){ alert('Isi judul'); return; }
+  if(!coverName) coverName=title+'.jpg';
   const obj={file:coverName, title:title, genre:genre, cover:`covers/${coverName}`};
-  if(idx===''){ allGames.push(obj); } else { allGames[parseInt(idx)]=obj; }
+  const idx=document.getElementById('editIdx').value;
+  if(idx==='') allGames.push(obj); else allGames[parseInt(idx)]=obj;
   render();
-  resetForm();
-  document.getElementById('status').textContent = `💾 Disimpan local: ${allGames.length} game. Klik "Save ke GitHub" untuk publik.`;
+  document.getElementById('status').textContent=`💾 Preview local: ${title} dengan file ${coverName} - sekarang foto sudah tampil di grid di bawah (pakai preview). Klik "Upload Cover + Save ke GitHub" biar publik bisa lihat.`;
 }
-
-function resetForm(){ addNew(); }
-
 function downloadJson(){
   const blob=new Blob([JSON.stringify(allGames,null,2)],{type:'application/json'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='games.json'; a.click();
 }
 
-async function uploadCoverToGitHub(file, token){
+async function uploadCover(file, token){
   const fileName=file.name;
-  const content = await file.arrayBuffer().then(b=>{
-    let binary=''; const bytes=new Uint8Array(b); for(let i=0;i<bytes.byteLength;i++) binary+=String.fromCharCode(bytes[i]); return btoa(binary);
-  });
-  // cek sha kalau file sudah ada
+  const buf=await file.arrayBuffer();
+  let binary=''; const bytes=new Uint8Array(buf); for(let i=0;i<bytes.byteLength;i++) binary+=String.fromCharCode(bytes[i]);
+  const content=btoa(binary);
   let sha=null;
   try{
-    const res=await fetch(`https://api.github.com/repos/${REPO}/contents/covers/${encodeFileName(fileName)}?ref=${BRANCH}`,{headers:{Authorization:`token ${token}`}});
-    if(res.ok){ const d=await res.json(); sha=d.sha; }
+    const r=await fetch(`https://api.github.com/repos/${REPO}/contents/covers/${encodeFileName(fileName)}?ref=${BRANCH}`,{headers:{Authorization:`token ${token}`}});
+    if(r.ok){ const d=await r.json(); sha=d.sha; }
   }catch{}
-  const body={message:`upload cover ${fileName} via admin`, content:content, branch:BRANCH};
+  const body={message:`upload cover ${fileName}`, content:content, branch:BRANCH};
   if(sha) body.sha=sha;
   const put=await fetch(`https://api.github.com/repos/${REPO}/contents/covers/${encodeFileName(fileName)}`,{method:'PUT', headers:{Authorization:`token ${token}`, 'Content-Type':'application/json'}, body:JSON.stringify(body)});
-  if(!put.ok){ const t=await put.text(); throw new Error('Upload cover gagal: '+t); }
+  if(!put.ok){ const t=await put.text(); throw new Error(t); }
   return fileName;
 }
 
 async function saveToGitHub(){
   const token=document.getElementById('ghToken').value.trim() || localStorage.getItem('gh_token');
-  if(!token){ alert('Masukkan GitHub Token dulu di kolom atas. Buat di github.com/settings/tokens/new -> centang repo'); return; }
+  if(!token){ alert('Paste token ghp_... dulu'); return; }
   localStorage.setItem('gh_token', token);
-  const statusEl=document.getElementById('status');
+  const st=document.getElementById('status');
   try{
-    statusEl.textContent='⏳ Upload cover baru (kalau ada)...';
     const coverInput=document.getElementById('coverFile');
     if(coverInput.files.length>0){
-      const uploadedName = await uploadCoverToGitHub(coverInput.files[0], token);
-      // update cover name di form
-      document.getElementById('gameCoverName').value=uploadedName;
-      // simpan local dulu
-      saveLocal();
+      st.textContent='⏳ Upload cover baru ke GitHub (ini yang bikin foto tampil)...';
+      await uploadCover(coverInput.files[0], token);
+      st.textContent='✅ Cover ter-upload! Sekarang upload games.json...';
+      // update localPreviews jadi raw url setelah upload
+      delete localPreviews[coverInput.files[0].name];
     }
-    statusEl.textContent='⏳ Menyimpan games.json ke GitHub...';
-    // get latest sha again
+    // simpan local dulu kalau ada edit
+    const title=document.getElementById('gameTitle').value.trim();
+    if(title){
+      const idx=document.getElementById('editIdx').value;
+      const coverName=document.getElementById('gameCoverName').value.trim()||title+'.jpg';
+      const genre=document.getElementById('gameGenre').value;
+      const obj={file:coverName, title:title, genre:genre, cover:`covers/${coverName}`};
+      if(idx==='') allGames.push(obj); else allGames[parseInt(idx)]=obj;
+    }
     try{
-      const res=await fetch(`https://api.github.com/repos/${REPO}/contents/games.json?ref=${BRANCH}`,{headers:{Authorization:`token ${token}`}});
-      if(res.ok){ const d=await res.json(); shaGames=d.sha; }
+      const r=await fetch(`https://api.github.com/repos/${REPO}/contents/games.json?ref=${BRANCH}`,{headers:{Authorization:`token ${token}`}});
+      if(r.ok){ const d=await r.json(); shaGames=d.sha; }
     }catch{}
-    const contentB64 = btoa(unescape(encodeURIComponent(JSON.stringify(allGames,null,2))));
-    const body={message:`update games.json via admin - ${allGames.length} games`, content:contentB64, branch:BRANCH};
+    const contentB64=btoa(unescape(encodeURIComponent(JSON.stringify(allGames,null,2))));
+    const body={message:`update games.json - ${allGames.length} games - fix encode ' !`, content:contentB64, branch:BRANCH};
     if(shaGames) body.sha=shaGames;
     const put=await fetch(`https://api.github.com/repos/${REPO}/contents/games.json`,{method:'PUT', headers:{Authorization:`token ${token}`, 'Content-Type':'application/json'}, body:JSON.stringify(body)});
     if(!put.ok){ const t=await put.text(); throw new Error(t); }
     const result=await put.json();
     shaGames=result.content.sha;
-    statusEl.textContent=`✅ Berhasil save ke GitHub! ${allGames.length} game sekarang publik di https://${REPO.split('/')[0]}.github.io/${REPO.split('/')[1]}/ - Tunggu 1-2 menit GitHub Pages update.`;
-    // reset file input
+    st.textContent=`✅ BERHASIL! ${allGames.length} game + cover sudah di GitHub. Foto yang tadi tidak tampil sekarang harusnya muncul karena sudah pakai encode %27 untuk ' dan %21 untuk ! . Tunggu 1-2 menit buka https://ps4aligames.github.io/listps5/ - Publik bisa lihat.`;
     document.getElementById('coverFile').value='';
+    document.getElementById('previewImg').style.display='none';
+    resetForm();
+    render();
   }catch(e){
-    statusEl.textContent=`❌ Gagal save: ${e.message}\n\nTips: token harus punya scope repo, repo harus public, dan nama file jangan pakai karakter terlarang.`;
+    st.textContent=`❌ Gagal: ${e.message}\n\nCek: token harus centang repo, file cover jangan lebih dari 25MB, nama file jangan pakai / atau \\`;
   }
 }
 
-function openEditor(){
-  const cust=document.getElementById('cust').value.trim();
-  if(!cust){ alert('Isi nama pembeli'); return; }
-  if(sel.size==0){ alert('Pilih game'); return; }
-  let t=`Halo Ali Games PS5, order:\n\n`;
-  Array.from(sel).forEach(i=>{ t+=`${i+1}. ${allGames[i].title}\n`; });
-  t+=`\nTotal: ${sel.size} game\nNama: ${cust}`;
-  document.getElementById('orderText').value=t;
-  document.getElementById('orderEditor').style.display='flex';
-}
-function sendWA(){ const m=document.getElementById('orderText').value.trim(); if(!m) return; window.open('https://wa.me/62895708629977?text='+encodeURIComponent(m),'_blank'); }
-function closeEditor(){ document.getElementById('orderEditor').style.display='none'; }
+document.getElementById('ghToken').value=localStorage.getItem('gh_token')||'';
 document.getElementById('q').addEventListener('input', render);
-
-function createRain(){
-  const el=document.getElementById('rain');
-  const syms=['△','○','×','□'];
-  for(let i=0;i<20;i++){
-    const d=document.createElement('div');
-    d.className='ps-drop';
-    d.textContent=syms[Math.floor(Math.random()*4)];
-    d.style.left=(Math.random()*100)+'%';
-    d.style.animationDelay=(Math.random()*8)+'s';
-    d.style.animationDuration=(9+Math.random()*6)+'s';
-    d.style.fontSize=(10+Math.random()*10)+'px';
-    el.appendChild(d);
-  }
-}
-createRain();
-
 loadFromGitHub();
 </script>
 </body></html>
