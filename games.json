@@ -1,13 +1,175 @@
 [
   {
-    "file": "63629.jpg",
+    "file": "Destroy All Humans! 2.jpg",
+    "title": "Destroy All Humans! 2",
+    "genre": "Action Adventure",
+    "cover": "covers/Destroy All Humans! 2.jpg"
+  },
+  {
+    "file": "EA Sports FC 27.jpeg",
     "title": "EA Sports FC 27",
     "genre": "Action Adventure",
-    "cover": "covers/63629.jpg"
+    "cover": "covers/EA Sports FC 27.jpeg"
+  },
+  {
+    "file": "Elden Ring.jpg",
+    "title": "Elden Ring",
+    "genre": "Action Adventure",
+    "cover": "covers/Elden Ring.jpg"
+  },
+  {
+    "file": "Final Fantasy VII Remake.jpg",
+    "title": "Final Fantasy VII Remake",
+    "genre": "Action Adventure",
+    "cover": "covers/Final Fantasy VII Remake.jpg"
+  },
+  {
+    "file": "Fortnite.jpg",
+    "title": "Fortnite",
+    "genre": "Action Adventure",
+    "cover": "covers/Fortnite.jpg"
+  },
+  {
+    "file": "God of War Ragnarok.jpg",
+    "title": "God of War Ragnarok",
+    "genre": "Action Adventure",
+    "cover": "covers/God of War Ragnarok.jpg"
+  },
+  {
+    "file": "God of War Sons of Sparta.jpg",
+    "title": "God of War Sons of Sparta",
+    "genre": "Action Adventure",
+    "cover": "covers/God of War Sons of Sparta.jpg"
+  },
+  {
+    "file": "Grand Theft Auto V.jpg",
+    "title": "Grand Theft Auto V",
+    "genre": "Action Adventure",
+    "cover": "covers/Grand Theft Auto V.jpg"
+  },
+  {
+    "file": "Harvest Moon The Winds of Anthos.jpg",
+    "title": "Harvest Moon The Winds of Anthos",
+    "genre": "Action Adventure",
+    "cover": "covers/Harvest Moon The Winds of Anthos.jpg"
+  },
+  {
+    "file": "Jurassic World Evolution 2.jpg",
+    "title": "Jurassic World Evolution 2",
+    "genre": "Action Adventure",
+    "cover": "covers/Jurassic World Evolution 2.jpg"
+  },
+  {
+    "file": "Marvel's Spider Man 2.jpg",
+    "title": "Marvel's Spider Man 2",
+    "genre": "Action Adventure",
+    "cover": "covers/Marvel's Spider Man 2.jpg"
+  },
+  {
+    "file": "Marvel's Spider Man Miles Morales.jpg",
+    "title": "Marvel's Spider Man Miles Morales",
+    "genre": "Action Adventure",
+    "cover": "covers/Marvel's Spider Man Miles Morales.jpg"
+  },
+  {
+    "file": "Monster Hunter Wilds.jpg",
+    "title": "Monster Hunter Wilds",
+    "genre": "Action Adventure",
+    "cover": "covers/Monster Hunter Wilds.jpg"
+  },
+  {
+    "file": "Mortal Kombat 1.jpg",
+    "title": "Mortal Kombat 1",
+    "genre": "Action Adventure",
+    "cover": "covers/Mortal Kombat 1.jpg"
+  },
+  {
+    "file": "Mortal Kombat 11.jpg",
+    "title": "Mortal Kombat 11",
+    "genre": "Action Adventure",
+    "cover": "covers/Mortal Kombat 11.jpg"
+  },
+  {
+    "file": "Resident Evil 4.jpg",
+    "title": "Resident Evil 4",
+    "genre": "Action Adventure",
+    "cover": "covers/Resident Evil 4.jpg"
+  },
+  {
+    "file": "Sonic Frontiers.jpg",
+    "title": "Sonic Frontiers",
+    "genre": "Action Adventure",
+    "cover": "covers/Sonic Frontiers.jpg"
+  },
+  {
+    "file": "63164.jpg",
+    "title": "63164",
+    "genre": "Action Adventure",
+    "cover": "covers/63164.jpg"
+  },
+  {
+    "file": "63379.jpg",
+    "title": "63379",
+    "genre": "Action Adventure",
+    "cover": "covers/63379.jpg"
+  },
+  {
+    "file": "63405.jpg",
+    "title": "63405",
+    "genre": "Action Adventure",
+    "cover": "covers/63405.jpg"
+  },
+  {
+    "file": "63478.webp",
+    "title": "63478",
+    "genre": "Action Adventure",
+    "cover": "covers/63478.webp"
+  },
+  {
+    "file": "63506.jpg",
+    "title": "63506",
+    "genre": "Action Adventure",
+    "cover": "covers/63506.jpg"
+  },
+  {
+    "file": "63507.jpg",
+    "title": "63507",
+    "genre": "Action Adventure",
+    "cover": "covers/63507.jpg"
+  },
+  {
+    "file": "63508.jpg",
+    "title": "63508",
+    "genre": "Action Adventure",
+    "cover": "covers/63508.jpg"
+  },
+  {
+    "file": "63509.jpg",
+    "title": "63509",
+    "genre": "Action Adventure",
+    "cover": "covers/63509.jpg"
+  },
+  {
+    "file": "63510.jpg",
+    "title": "63510",
+    "genre": "Action Adventure",
+    "cover": "covers/63510.jpg"
+  },
+  {
+    "file": "63512.jpg",
+    "title": "63512",
+    "genre": "Action Adventure",
+    "cover": "covers/63512.jpg"
+  },
+  {
+    "file": "63521.jpg",
+    "title": "63521",
+    "genre": "Action Adventure",
+    "cover": "covers/63521.jpg"
   },
   {
     "file": "63629.jpg",
-    "title": "EA Sports FC 27",
+    "title": "63629",
     "genre": "Action Adventure",
     "cover": "covers/63629.jpg"
   }
