@@ -104,7 +104,16 @@ function coverHtml(g,idx){
   const genre = g.genre || '';
   const icon = genreIcon(genre);
   return `<div class="cover">
-    <img src="${cover}" alt="${title}" loading="lazy" onload="this.nextElementSibling.classList.add('hidden')" onerror="this.style.display='none'">
+    <img src="${cover}" alt="${title}" loading="lazy"
+      onload="this.nextElementSibling.classList.add('hidden')"
+      onerror="
+        if(this.dataset.retry!=='1'){
+          this.dataset.retry='1';
+          if(this.src.endsWith('.jpg')){ this.src=this.src.replace('.jpg','.png'); return; }
+        }
+        this.style.display='none';
+        this.nextElementSibling.classList.remove('hidden');
+      ">
     <div class="fallback"><div class="ico">${icon}</div><div class="tt">${title}</div><div class="gg">${genre.substring(0,16)}</div></div>
     <div class="num">${idx+1}</div>
   </div>`;
