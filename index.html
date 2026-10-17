@@ -15,7 +15,7 @@ body{background:#000;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
 .white-line-v::before{content:'';position:absolute;left:50%;top:6%;bottom:8%;width:2px;transform:translateX(-50%);background:linear-gradient(180deg, transparent, rgba(255,255,255,0.75) 28%, #fff 48%, rgba(255,255,255,0.7) 68%, transparent);box-shadow:0 0 2px #fff, 0 0 8px rgba(255,255,255,0.6), 0 0 18px rgba(255,255,255,0.2);animation:blinkBareng 3s ease-in-out infinite}
 .white-line-v.left{transform:rotate(-4deg);margin-right:26px}.white-line-v.right{transform:rotate(4deg);margin-left:26px}
 @keyframes blinkBareng{0%,100%{opacity:0.18}35%{opacity:1}75%{opacity:0.35}}
-.ps-rain{position:fixed !important;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:50 !important;opacity:0.22}
+.ps-rain{position:fixed !important;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2 !important;opacity:0.25}
 .ps-drop{position:absolute;top:-80px;animation:fall linear infinite;color:#fff;font-weight:900;text-shadow:0 0 6px rgba(255,255,255,0.8)}
 @keyframes fall{0%{transform:translateY(-100px) rotate(0deg)}100%{transform:translateY(110vh) translateX(40px) rotate(360deg)}}
 .bokeh{position:absolute;width:4px;height:4px;background:radial-gradient(circle, rgba(255,220,120,0.85) 0%, rgba(255,200,80,0.25) 50%, transparent 70%);border-radius:50%;pointer-events:none;z-index:4;animation:bokehFloat 12s ease-in-out infinite}
@@ -36,8 +36,8 @@ body{background:#000;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
 .search{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .search input{flex:1;min-width:120px;background:#111;border:1px solid #222;color:#fff;padding:10px 12px;border-radius:10px;font-size:13px;outline:none}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
-.card{background:#111;border-radius:12px;overflow:hidden;border:1px solid #222;cursor:pointer;position:relative;z-index:12}
-.card.on{border-color:#0070ff;box-shadow:0 0 0 2px #0070ff}
+.card{background:#111;border-radius:12px;overflow:hidden;border:1px solid #222;cursor:pointer;position:relative;z-index:12;transition:transform .15s, border-color .15s, box-shadow .15s}.card:active{transform:scale(.97)}
+.card.on{border-color:#0070ff;box-shadow:0 0 0 2px #0070ff, 0 6px 20px rgba(0,112,255,.3)}.card.on::after{content:'✓';position:absolute;top:6px;right:6px;background:#0070ff;color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;z-index:5}
 .cover{position:relative;aspect-ratio:3/4;background:#0a0a0a;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .cover img{width:100%;height:100%;object-fit:cover;display:block}
 .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;background:#151515;z-index:2}
@@ -88,18 +88,40 @@ function pagesUrl(f){ return `https://ps4aligames.github.io/listps5/covers/${enc
 function fallbackUrl(f){ return `covers/${encodeFileName(f)}`; }
 function genreIcon(g){ if(g.includes('Action')) return '🎮'; if(g.includes('Open')) return '🌍'; if(g.includes('FPS')) return '🔫'; return '🎯'; }
 function coverHtml(g,idx){
-  const file=g.file, title=g.title, genre=g.genre;
+  const file=g.file, title=g.title;
   const preview=localPreviews[file];
   const src=preview||rawUrl(file), src2=pagesUrl(file), src3=fallbackUrl(file);
-  return `<div class="cover"><img src="${src}" alt="${title}" loading="lazy" onload="this.nextElementSibling.classList.add('hidden')" onerror="if(!this.dataset.s1){this.dataset.s1=1; this.src='${src2}'; return;} if(!this.dataset.s2){this.dataset.s2=1; this.src='${src3}'; return;} this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"><div class="fallback"><div style="font-size:28px">🎮</div><div style="font-size:10px;font-weight:800;margin-top:4px">${title}</div></div><div class="num">${idx+1}</div>${editMode?`<div class="edit-bar"><button class="btn primary" style="padding:4px 8px;font-size:10px" onclick="event.stopPropagation();editGame(${idx})">Edit</button><button class="btn primary" style="background:#ff1744;padding:4px 8px;font-size:10px" onclick="event.stopPropagation();deleteGame(${idx})">Hapus</button></div>`:''}</div>`;
+  return `<div class="cover">
+    <img src="${src}" alt="${title}" loading="lazy" data-fb="${file}"
+      onload="this.parentElement.querySelector('.fallback').classList.add('hidden')"
+      onerror="if(!this.dataset.s1){this.dataset.s1=1; this.src='${src2}'; return;} if(!this.dataset.s2){this.dataset.s2=1; this.src='${src3}'; return;} this.style.display='none'; this.parentElement.querySelector('.fallback').classList.remove('hidden');">
+    <div class="fallback"><div style="font-size:28px">🎮</div><div style="font-size:10px;font-weight:800;margin-top:4px">${title}</div></div>
+    <div class="num">${idx+1}</div>
+    ${editMode?`<div class="edit-bar"><button class="btn primary" style="padding:4px 8px;font-size:10px" onclick="event.stopPropagation();editGame(${idx})">Edit</button><button class="btn primary" style="background:#ff1744;padding:4px 8px;font-size:10px" onclick="event.stopPropagation();deleteGame(${idx})">Hapus</button></div>`:''}
+  </div>`;
 }
 function render(){
   const q=document.getElementById('q').value.toLowerCase().trim();
   const grid=document.getElementById('grid');
-  grid.innerHTML='';
   const filtered=allGames.map((g,i)=>({g,i})).filter(({g})=>!q||g.title.toLowerCase().includes(q)||g.file.toLowerCase().includes(q));
-  filtered.forEach(({g,i})=>{ const card=document.createElement('div'); card.className='card'+(sel.has(i)?' on':''); card.innerHTML=coverHtml(g,i)+`<div class="foot"><div class="ft">${g.title}</div><div class="fc">${g.file}</div></div>`; card.onclick=()=>{ if(editMode) return; if(sel.has(i)) sel.delete(i); else sel.add(i); render(); }; grid.appendChild(card); });
-  document.getElementById('cnt').textContent = sel.size>0 ? sel.size+' dipilih' : filtered.length+' game'; document.getElementById('topCnt').textContent = filtered.length+' game';
+  // Only full rebuild when search changes or editMode changes
+  grid.innerHTML='';
+  filtered.forEach(({g,i})=>{
+    const card=document.createElement('div');
+    card.className='card'+(sel.has(i)?' on':'');
+    card.dataset.idx=i;
+    card.innerHTML=coverHtml(g,i)+`<div class="foot"><div class="ft">${g.title}</div><div class="fc">${g.genre}</div></div>`;
+    card.addEventListener('click',()=>{
+      if(editMode) return;
+      if(sel.has(i)) sel.delete(i); else sel.add(i);
+      card.classList.toggle('on', sel.has(i));
+      document.getElementById('cnt').textContent = sel.size>0 ? sel.size+' dipilih' : filtered.length+' game';
+    });
+    grid.appendChild(card);
+  });
+  document.getElementById('cnt').textContent = sel.size>0 ? sel.size+' dipilih' : filtered.length+' game';
+  document.getElementById('topCnt').textContent = filtered.length+' game';
+  if(filtered.length===0) grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:30px;opacity:.6">Tidak ada game</div>';
 }
 async function loadFromGitHub(){
   const st=document.getElementById('status')||{textContent:''};
