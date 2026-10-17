@@ -50,7 +50,7 @@ body{background:#000;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
 .admin-panel{background:#111;border:1px solid #222;border-radius:12px;padding:12px;margin-bottom:12px;display:none;position:relative;z-index:20}
 .admin-panel.open{display:block}
 .admin-panel input, .admin-panel select{width:100%;background:#0a0a0a;border:1px solid #222;color:#fff;padding:8px 10px;border-radius:8px;margin-top:18px;font-size:12px}
-.status{font-size:11px;line-height:1.5;background:#0a0a0a;border:1px dashed #333;border-radius:8px;padding:8px;margin-bottom:10px;white-space:pre-wrap}
+.status{display:none !important; /* font-size:11px;line-height:1.5;background:#0a0a0a;border:1px dashed #333;border-radius:8px;padding:8px;margin-bottom:10px;white-space:pre-wrap}
 .preview{width:100%;max-height:180px;object-fit:contain;background:#000;border-radius:8px;margin-top:8px;display:none}
 </style>
 </head>
@@ -69,7 +69,7 @@ body{background:#000;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
 </div>
 </div>
 <div class="section">
-<div class="status" id="status">⏳ Banner hijau dihapus - jadi hitam pekat - hujan sampai cover.</div>
+<!-- status dihapus -->
 <div class="sec-head"><h2>List Game PS5</h2><div style="display:flex;gap:6px"><button class="btn" onclick="toggleAdmin()">⚙️ Admin</button><button class="btn" onclick="loadFromGitHub()">🔄 Reload</button><span class="pill" id="topCnt">0</span></div></div>
 <div class="admin-panel" id="adminPanel">
 <input id="ghToken" type="password" placeholder="GitHub Token ghp_..."><input id="editIdx" type="hidden"><input id="gameTitle" placeholder="Judul"><select id="gameGenre"><option>Action Adventure</option><option>Open World</option><option>RPG / Anime / Musou</option><option>FPS / Shooting</option><option>Fighting</option><option>Racing</option><option>Sports</option><option>Family / Casual</option></select><input id="gameCoverName" placeholder="Nama file cover.jpg"><input id="coverFile" type="file" accept="image/*"><img id="previewImg" class="preview"><div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap"><button class="btn primary" onclick="saveLocal()">💾 Preview</button><button class="btn primary" onclick="saveToGitHub()">🚀 Save GitHub</button><button class="btn" onclick="resetForm()">Batal</button></div>
