@@ -88,5 +88,11 @@
     "title": "Resident Evil 4",
     "genre": "Action Adventure",
     "cover": "covers/Resident Evil 4.jpg"
+  },
+  {
+    "file": "EA Sports FC 27",
+    "title": "EA Sports FC 27",
+    "genre": "Sports",
+    "cover": "covers/EA Sports FC 27"
   }
 ]
