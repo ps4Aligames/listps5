@@ -6,24 +6,24 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#000;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
-.header{position:relative;background:#000;min-height:470px;display:flex;align-items:flex-start;padding-top:48px;overflow:hidden}
+.header{position:relative;background:#000;min-height:360px;display:flex;align-items:flex-start;padding-top:36px;overflow:hidden}
 /* BANNER - HILANGKAN WARNA HIJAU - JADI HITAM PEKAT */
 .bg-spotlight{position:absolute;inset:0;z-index:1;background:#000 !important;opacity:1}
 .bg-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.95) 100%)}
-.white-lines-v{position:absolute;right:3%;top:8%;bottom:5%;width:200px;z-index:7;display:flex;justify-content:center;pointer-events:none}
+.white-lines-v{position:absolute;right:2.2%;top:5%;bottom:5%;width:180px;z-index:7;display:flex;justify-content:center;pointer-events:none}
 .white-line-v{position:relative;width:2px;height:100%}
 .white-line-v::before{content:'';position:absolute;left:50%;top:6%;bottom:8%;width:2px;transform:translateX(-50%);background:linear-gradient(180deg, transparent, rgba(255,255,255,0.75) 28%, #fff 48%, rgba(255,255,255,0.7) 68%, transparent);box-shadow:0 0 2px #fff, 0 0 8px rgba(255,255,255,0.6), 0 0 18px rgba(255,255,255,0.2);animation:blinkBareng 3s ease-in-out infinite}
 .white-line-v.left{transform:rotate(-4deg);margin-right:26px}.white-line-v.right{transform:rotate(4deg);margin-left:26px}
 @keyframes blinkBareng{0%,100%{opacity:0.18}35%{opacity:1}75%{opacity:0.35}}
-.ps-rain{position:fixed !important;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:30 !important;opacity:0.22}
+.ps-rain{position:fixed !important;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:50 !important;opacity:0.22}
 .ps-drop{position:absolute;top:-80px;animation:fall linear infinite;color:#fff;font-weight:900;text-shadow:0 0 6px rgba(255,255,255,0.8)}
 @keyframes fall{0%{transform:translateY(-100px) rotate(0deg)}100%{transform:translateY(110vh) translateX(40px) rotate(360deg)}}
 .bokeh{position:absolute;width:4px;height:4px;background:radial-gradient(circle, rgba(255,220,120,0.85) 0%, rgba(255,200,80,0.25) 50%, transparent 70%);border-radius:50%;pointer-events:none;z-index:4;animation:bokehFloat 12s ease-in-out infinite}
 @keyframes bokehFloat{0%,100%{transform:translateY(0);opacity:0.3}50%{transform:translateY(-18px);opacity:0.7}}
 #bokehBox{position:absolute;inset:0;z-index:4;pointer-events:none}
-.content{position:relative;z-index:10;padding:24px 20px 28px;max-width:760px;width:100%}
+.content{position:relative;z-index:10;padding:28px 20px 28px;max-width:760px;width:100%}
 .brand h1{font-size:26px;font-weight:900}
-.big{margin-top:28px;font-size:46px;font-weight:900;line-height:0.86;text-transform:uppercase}
+.big{margin-top:18px;font-size:46px;font-weight:900;line-height:0.86;text-transform:uppercase}
 .big .l1{color:#C8C8C8;display:block}.big .l2{display:block;margin-top:4px}.big .l2 .w{color:#C8C8C8}.big .l2 .g{color:#8a8a8a;margin-left:7px}
 .info{margin-top:22px;display:flex;gap:11px;align-items:flex-start}
 .ic{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:14px}
@@ -49,7 +49,7 @@ body{background:#000;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
 .wa{background:#0070ff;color:#fff;border:none;padding:10px 16px;border-radius:10px;font-weight:800;cursor:pointer;font-size:13px}
 .admin-panel{background:#111;border:1px solid #222;border-radius:12px;padding:12px;margin-bottom:12px;display:none;position:relative;z-index:20}
 .admin-panel.open{display:block}
-.admin-panel input, .admin-panel select{width:100%;background:#0a0a0a;border:1px solid #222;color:#fff;padding:8px 10px;border-radius:8px;margin-top:6px;font-size:12px}
+.admin-panel input, .admin-panel select{width:100%;background:#0a0a0a;border:1px solid #222;color:#fff;padding:8px 10px;border-radius:8px;margin-top:18px;font-size:12px}
 .status{font-size:11px;line-height:1.5;background:#0a0a0a;border:1px dashed #333;border-radius:8px;padding:8px;margin-bottom:10px;white-space:pre-wrap}
 .preview{width:100%;max-height:180px;object-fit:contain;background:#000;border-radius:8px;margin-top:8px;display:none}
 </style>
@@ -62,9 +62,10 @@ body{background:#000;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
 <div class="white-lines-v"><div class="white-line-v left"></div><div class="white-line-v right"></div></div>
 <div id="bokehBox"></div>
 <div class="content">
-<div class="brand"><h1>ALI GAMES PS5</h1></div>
-<div class="big"><span class="l1">ALI GAMES</span><span class="l2"><span class="w">PS5</span><span class="g">LIST</span></span></div>
-<div class="info"><div class="ic">✔</div><div class="info-text"><div class="m">WA: 0895708629977</div><div class="s" id="syncInfo">Banner no green - hujan sampai cover</div></div></div>
+<!-- brand dihapus -->
+<div class="big"><span class="l1">ALI GAMES</span><span class="l2" style="font-size:26px;letter-spacing:1px"><span class="w" style="color:#C8C8C8">Sales & Service</span></span><span class="l2" style="margin-top:18px"><span class="w">PS5</span><span class="g">LIST</span></span></div>
+<div class="info"><div class="ic">📍</div><div class="info-text"><div class="m" style="font-size:12px;line-height:1.35;opacity:0.9">Jln. A Yani No 238 Jaya Plaza Lantai Dasar Blok I No 10<br>Bandung Kota</div></div></div>
+<div class="info" style="margin-top:14px"><div class="ic" style="background:#25D366;border:none;width:36px;height:36px;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.55 2 2.09 6.46 2.09 11.95c0 1.75.46 3.46 1.33 4.97L2 22l5.25-1.38a9.82 9.82 0 0 0 4.7 1.2h.01c5.49 0 9.95-4.46 9.95-9.95 0-2.66-1.03-5.16-2.91-7.04l.05.08zM12.05 20.3h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31A8.24 8.24 0 0 1 3.8 11.95C3.8 7.4 7.5 3.7 12.05 3.7a8.22 8.22 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.42 5.83c0 4.55-3.7 8.25-8.25 8.25zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.22-.08-.39-.12-.55.12-.16.25-.63.81-.77.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.36-1.7-.14-.25-.02-.38.1-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.36.99 2.52c.12.17 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg></div><div class="info-text"><div class="s" style="font-size:14px;font-weight:800;letter-spacing:0.2px">0895708629977</div><div class="s" id="syncInfo"></div></div></div>
 </div>
 </div>
 <div class="section">
